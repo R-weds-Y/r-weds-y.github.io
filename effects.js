@@ -392,7 +392,7 @@
       const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = clamp(e.clientY - r.top, H * .38, H * .86);
       ripples.push({ x, y: y + 2, t: performance.now() });
       if (diyas.length < 22) spawn(x, y, true);
-      wrap.classList.add('touched');
+      wrap.parentNode.classList.add('touched');
       if (reduced) { drawWater(0); diyas.forEach(d => drawDiya(d, 0)); }
     });
   }

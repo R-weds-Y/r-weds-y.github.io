@@ -553,9 +553,9 @@ input[type=radio], input[type=checkbox] { width: 19px; height: 19px; margin: 0; 
 .river__water { position: relative; height: 220px; margin: 0 -24px;
   -webkit-mask-image: linear-gradient(transparent 0, #000 16%, #000 84%, transparent 100%); mask-image: linear-gradient(transparent 0, #000 16%, #000 84%, transparent 100%); }
 .river__water canvas { display: block; width: 100%; height: 100%; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
-.river__hint { position: absolute; left: 0; right: 0; bottom: 30px; margin: 0; text-align: center; pointer-events: none;
-  font: italic 400 .98rem/1 var(--serif); color: rgba(242,220,168,.8); transition: opacity .6s; }
-.river__water.touched .river__hint { opacity: 0; }
+.river__hint { margin: 2px 0 0; text-align: center; pointer-events: none;
+  font: italic 400 1.02rem/1.3 var(--serif); color: var(--gold-ink); transition: opacity .6s; }
+.river.touched .river__hint { opacity: 0; }
 
 /* ---- 5. toran ---- */
 .toran { position: absolute; left: 0; top: 0; width: 100%; height: 100px; z-index: 3; pointer-events: none; }
