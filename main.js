@@ -71,7 +71,7 @@
       var now = Date.now(), diff = target - now;
       if (diff <= 0) {
         grid.hidden = true; msg.hidden = false;
-        msg.textContent = now >= after ? 'Thank you for celebrating with us' : 'Today’s the day';
+        msg.textContent = now >= after ? 'Thank you for celebrating with us' : 'The celebrations have begun';
         return false;
       }
       var s = Math.floor(diff / 1000);
@@ -89,18 +89,12 @@
   var siteUrl = function () { return location.href.split('#')[0].split('?')[0]; };
   function eventTitle(ev) { return ev.id + ' · ' + C.couple.bride + ' & ' + C.couple.groom; }
   function eventDetails(ev) { return (ev.note ? 'Dress note: ' + ev.note + '\n' : '') + siteUrl(); }
-  function icsAllHref() {
-    var loc = C.venue.name + ', ' + C.venue.address, now = stamp(new Date());
-    var lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Ruchira & Yash//Wedding//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
-      'X-WR-CALNAME:' + icsEsc(C.couple.bride + ' & ' + C.couple.groom + ' · Wedding')];
-    C.events.forEach(function (ev) {
-      var s = new Date(ev.start), e = new Date(s.getTime() + (ev.hours || 3) * 36e5);
-      lines.push('BEGIN:VEVENT', 'UID:' + ev.id.toLowerCase() + '-20261212@ruchira-yash', 'DTSTAMP:' + now,
-        'DTSTART:' + stamp(s), 'DTEND:' + stamp(e), 'SUMMARY:' + icsEsc(eventTitle(ev)), 'LOCATION:' + icsEsc(loc),
-        'DESCRIPTION:' + icsEsc(eventDetails(ev)), 'END:VEVENT');
-    });
-    lines.push('END:VCALENDAR');
-    return 'data:text/calendar;charset=utf-8,' + encodeURIComponent(lines.join('\r\n'));
+  function gcalHref(ev) {
+    var s = new Date(ev.start), e = new Date(s.getTime() + (ev.hours || 3) * 36e5);
+    return 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+      '&text=' + encodeURIComponent(eventTitle(ev)) + '&dates=' + stamp(s) + '/' + stamp(e) +
+      '&details=' + encodeURIComponent(eventDetails(ev)) + '&location=' + encodeURIComponent(C.venue.name + ', ' + C.venue.address) +
+      '&ctz=Asia/Kolkata';
   }
   var BUNTING = '<svg class="bunting" viewBox="0 0 92 34" aria-hidden="true"><defs><clipPath id="yflag"><rect x="61" y="9.4" width="14" height="12"/></clipPath></defs>' +
     '<path d="M1 4Q46 18 91 4" fill="none" stroke="#BEA270" stroke-width=".8"/>' +
@@ -121,7 +115,11 @@
         '</article></li>';
     });
     ol.innerHTML = html;
-    var cal = $('#calAll'); if (cal) cal.href = icsAllHref();
+    var one = $('#calGoogleOne');
+    if (one) one.innerHTML = C.events.map(function (ev) { return '<a href="' + esc(gcalHref(ev)) + '" target="_blank" rel="noopener">' + esc(ev.id) + '</a>'; }).join('');
+    var all = $('#calGoogleAll');
+    if (all) all.href = 'https://calendar.google.com/calendar/render?cid=' +
+      encodeURIComponent('webcal://' + location.host + location.pathname.replace(/[^\/]*$/, '') + 'assets/ruchira-yash-wedding.ics');
     ol.insertAdjacentHTML('beforeend', '<li aria-hidden="true" style="list-style:none"><svg class="timeline__anchor"><use href="#anchor"/></svg></li>');
   }
 

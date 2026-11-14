@@ -6,9 +6,10 @@
    ========================================================================= */
 window.WEDDING = {
   couple: { bride: 'Ruchira', groom: 'Yash' },
+  siteUrl: 'https://yashvardhan18.github.io/ruchira-yash/', // used in the calendar file (node tools/make-ics.js)
 
   // All times are IST. Always keep the +05:30 offset — never rely on device timezone.
-  weddingStart: '2026-12-12T14:00:00+05:30', // countdown target
+  weddingStart: '2026-12-11T11:00:00+05:30', // countdown target: the Haldi, when the festivities begin
   thankYouFrom: '2026-12-13T00:00:00+05:30', // after this: "Thank you for celebrating with us"
 
   dateBlock: { weekday: 'Fri & Sat', day: '11–12', monthYear: 'December 2026' }, // shown under the photo
@@ -29,10 +30,11 @@ window.WEDDING = {
     { id: 'Haldi',     icon: 'haldi',     day: 'Friday, 11 December',   start: '2026-12-11T11:00:00+05:30', hours: 3, time: '1100 HRS',
       note: 'We’d love to see you in pink', swatch: '#E59AB0' },
     { id: 'Mehendi',   icon: 'mehendi',   day: 'Friday, 11 December',   start: '2026-12-11T14:00:00+05:30', hours: 4, time: '1400 HRS',
-      note: 'No dress code, come comfortable' },
+      note: 'Bring all the colours and love' },
     { id: 'Sangeet',   icon: 'sangeet',   day: 'Friday, 11 December',   start: '2026-12-11T19:00:00+05:30', hours: 4, time: '1900 HRS',
-      note: 'Whatever makes you look your best', bunting: true },
-    { id: 'Wedding',   icon: 'wedding',   day: 'Saturday, 12 December', start: '2026-12-12T14:00:00+05:30', hours: 4, time: '1400 HRS' },
+      note: 'Shine bright in the starry night', bunting: true },
+    { id: 'Wedding',   icon: 'wedding',   day: 'Saturday, 12 December', start: '2026-12-12T14:00:00+05:30', hours: 4, time: '1400 HRS',
+      note: 'Traditionals' },
     { id: 'Reception', icon: 'reception', day: 'Saturday, 12 December', start: '2026-12-12T19:00:00+05:30', hours: 4, time: '1900 HRS' },
   ],
 

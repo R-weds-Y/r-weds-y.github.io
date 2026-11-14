@@ -106,8 +106,12 @@ For each photo, export a 640 px and a 1280 px WebP plus a 1280 px JPEG into `ass
   - the map unmasks
   - All of it is off under *Reduce Motion*.
 - **Music:** loads only after the tap. If `flute.mp3` is missing or fails to load, the shehnai button stays hidden and nothing breaks. Mute is remembered on the device. Music pauses when the tab is hidden and resumes on return unless muted.
-- **Countdown** targets `2026-12-12T14:00:00+05:30`, so it's correct in any device timezone. On the day it reads "Today's the day", and from 13 Dec (IST) it reads "Thank you for celebrating with us".
+- **Countdown** targets the Haldi, `2026-12-11T11:00:00+05:30` (when the festivities begin), so it's correct in any device timezone. Once it passes it reads "The celebrations have begun", and from 13 Dec (IST) it reads "Thank you for celebrating with us".
 - **RSVP:** the form asks for a name, Bride's/Groom's side, and whether they're coming. If they accept, it asks "Just me" or "The two of us", so one link works for singles and couples. The thank-you message adapts ("…with you both"). There's no phone number: the guest's browser keeps a private random ID, so replying again from the same phone updates their row, and their answers come back prefilled. If sending fails, the typed answers stay in the form.
-- **Calendar:** one "Add all to calendar" button under the timeline downloads a single `.ics` with all five celebrations. It works with Apple Calendar, Google Calendar and Outlook.
+- **Calendar:** "Add to calendar" under the timeline opens a small panel:
+  - **Apple Calendar · Outlook** links to a real file, `assets/ruchira-yash-wedding.ics`, with all five celebrations and a 3-hour reminder for each.
+  - **Google Calendar** subscribes to that same file.
+  - There are also one-at-a-time Google links.
+  - The file is generated from `config.js`. **After changing any event, run `node tools/make-ics.js`** and commit the updated file.
 - **Privacy:** `noindex,nofollow`. No analytics, trackers or cookies. The only third parties are Google Fonts, the lazy-loaded Google Maps embed (loads as you scroll near the venue), and the Apps Script endpoint.
 - **Only one interactive easter egg:** seven taps on the "&" between the names. The other touches (Morse divider, signal-flag bunting, compass, anchor-chain timeline, block seal, "✓ 1 confirmation") are deliberately silent decoration.
