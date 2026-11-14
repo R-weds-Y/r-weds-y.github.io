@@ -47,7 +47,7 @@ window.WEDDING = {
 
   rsvp: {
     // Paste the Apps Script "Web app" URL here (ends in /exec). See apps-script/README.md
-    endpoint: '',
+    endpoint: 'https://script.google.com/macros/s/AKfycbyGKHMZet_nW-90sQh-bHPtwTDnrVSAillTkdZPGWgpSersmvv2dTJIS57xkFKe4mcj/exec',
     closesAt: '2026-12-05T23:59:59+05:30', // RSVP closes after 5 Dec 2026
     askSide: true, // set to false to drop the "Bride's side / Groom's side" question
   },
