@@ -11,6 +11,16 @@ The site sends each RSVP to a small Apps Script web app, which writes one row pe
    - Google asks for permission: **Review permissions →** your account **→ Advanced → Go to … (unsafe) → Allow**. The script is yours and only touches this spreadsheet.
    - The log should show `{"ok":true,"updated":false}` and then `{"ok":true,"updated":true}`. Back in the sheet, the `RSVPs` tab has a single "Test Guest" row with a value in **Updated**. That proves the upsert works. **Delete that row** (keep the header row).
 
+### If Google says "This app is blocked"
+
+This happens when the script asks for access to *all* your spreadsheets, a "sensitive" permission that Google can block for scripts it hasn't verified.
+
+1. Check that the first lines of `Code.gs` in the editor include `@OnlyCurrentDoc`, exactly as in this folder's copy. That limits the script to this one spreadsheet, which Google allows.
+2. Save, then **▶ Run → testUpsert** again.
+3. If Google still blocks it:
+   - Make sure the browser is signed in to the **same Google account that owns the spreadsheet**.
+   - If that account uses Google's **Advanced Protection Program**, it blocks every unverified script, including your own. In that case, create the sheet and script with a different Google account.
+
 ## 2. Deploy as a web app
 
 1. **Deploy → New deployment**, then click the ⚙ next to "Select type" and choose **Web app**.

@@ -7,6 +7,13 @@
  * See apps-script/README.md for deployment steps.
  */
 
+/**
+ * @OnlyCurrentDoc
+ * Limits the script to the one spreadsheet it is attached to. Without this, Apps Script asks
+ * for access to every spreadsheet in your Drive, a "sensitive" permission that Google can
+ * block for unverified scripts ("This app is blocked").
+ */
+
 var SHEET_NAME = 'RSVPs';
 var HEADERS = ['Timestamp', 'Updated', 'Name', 'Side', 'Attending', 'Guests', 'Message', 'Guest ID'];
 var ID_COL = 8; // 1-based column index of "Guest ID"
