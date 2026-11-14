@@ -7,15 +7,14 @@ X-WR-CALNAME:Ruchira & Yash · Wedding
 X-WR-TIMEZONE:Asia/Kolkata
 BEGIN:VEVENT
 UID:haldi-20261212@ruchira-yash
-DTSTAMP:20261114T120220Z
+DTSTAMP:20261114T123243Z
 DTSTART:20261211T053000Z
 DTEND:20261211T083000Z
 SUMMARY:Haldi · Ruchira & Yash
 LOCATION:Kadamb Kuteer Resort\, Vrindavan\, Delhi – Agra National Highway
  \, Uttar Pradesh
-DESCRIPTION:We’d love to see you in pink\nhttps://yashvardhan18.github.io
- /ruchira-yash/
-URL:https://yashvardhan18.github.io/ruchira-yash/
+DESCRIPTION:We’d love to see you in pink\nhttps://r-weds-y.github.io/
+URL:https://r-weds-y.github.io/
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Haldi · Ruchira & Yash
@@ -24,15 +23,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:mehendi-20261212@ruchira-yash
-DTSTAMP:20261114T120220Z
+DTSTAMP:20261114T123243Z
 DTSTART:20261211T083000Z
 DTEND:20261211T123000Z
 SUMMARY:Mehendi · Ruchira & Yash
 LOCATION:Kadamb Kuteer Resort\, Vrindavan\, Delhi – Agra National Highway
  \, Uttar Pradesh
-DESCRIPTION:Bring all the colours and love\nhttps://yashvardhan18.github.io
- /ruchira-yash/
-URL:https://yashvardhan18.github.io/ruchira-yash/
+DESCRIPTION:Bring all the colours and love\nhttps://r-weds-y.github.io/
+URL:https://r-weds-y.github.io/
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Mehendi · Ruchira & Yash
@@ -41,15 +39,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:sangeet-20261212@ruchira-yash
-DTSTAMP:20261114T120220Z
+DTSTAMP:20261114T123243Z
 DTSTART:20261211T133000Z
 DTEND:20261211T173000Z
 SUMMARY:Sangeet · Ruchira & Yash
 LOCATION:Kadamb Kuteer Resort\, Vrindavan\, Delhi – Agra National Highway
  \, Uttar Pradesh
-DESCRIPTION:Shine bright in the starry night\nhttps://yashvardhan18.github.
- io/ruchira-yash/
-URL:https://yashvardhan18.github.io/ruchira-yash/
+DESCRIPTION:Shine bright in the starry night\nhttps://r-weds-y.github.io/
+URL:https://r-weds-y.github.io/
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Sangeet · Ruchira & Yash
@@ -58,14 +55,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:wedding-20261212@ruchira-yash
-DTSTAMP:20261114T120220Z
+DTSTAMP:20261114T123243Z
 DTSTART:20261212T083000Z
 DTEND:20261212T123000Z
 SUMMARY:Wedding · Ruchira & Yash
 LOCATION:Kadamb Kuteer Resort\, Vrindavan\, Delhi – Agra National Highway
  \, Uttar Pradesh
-DESCRIPTION:Traditionals\nhttps://yashvardhan18.github.io/ruchira-yash/
-URL:https://yashvardhan18.github.io/ruchira-yash/
+DESCRIPTION:Traditionals\nhttps://r-weds-y.github.io/
+URL:https://r-weds-y.github.io/
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Wedding · Ruchira & Yash
@@ -74,14 +71,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:reception-20261212@ruchira-yash
-DTSTAMP:20261114T120220Z
+DTSTAMP:20261114T123243Z
 DTSTART:20261212T133000Z
 DTEND:20261212T173000Z
 SUMMARY:Reception · Ruchira & Yash
 LOCATION:Kadamb Kuteer Resort\, Vrindavan\, Delhi – Agra National Highway
  \, Uttar Pradesh
-DESCRIPTION:https://yashvardhan18.github.io/ruchira-yash/
-URL:https://yashvardhan18.github.io/ruchira-yash/
+DESCRIPTION:https://r-weds-y.github.io/
+URL:https://r-weds-y.github.io/
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Reception · Ruchira & Yash

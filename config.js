@@ -6,7 +6,7 @@
    ========================================================================= */
 window.WEDDING = {
   couple: { bride: 'Ruchira', groom: 'Yash' },
-  siteUrl: 'https://yashvardhan18.github.io/ruchira-yash/', // used in the calendar file (node tools/make-ics.js)
+  siteUrl: 'https://r-weds-y.github.io/', // used in the calendar file (node tools/make-ics.js)
 
   // All times are IST. Always keep the +05:30 offset — never rely on device timezone.
   weddingStart: '2026-12-11T11:00:00+05:30', // countdown target: the Haldi, when the festivities begin
