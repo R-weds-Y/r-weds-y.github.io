@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&display=swap&text=0123456789%E2%80%93">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit&display=swap&text=%E0%A4%B5%E0%A4%95%E0%A5%8D%E0%A4%B0%E0%A4%A4%E0%A5%81%E0%A4%A3%E0%A4%A1%E0%A4%AE%E0%A4%B9%E0%A4%BE%E0%A4%AF%E0%A4%B8%E0%A5%82%E0%A5%8B%E0%A4%9F%E0%A4%BF%E0%A4%AA%E0%A4%AD%E0%A5%A4%E0%A4%A8%E0%A4%98%E0%A4%82%E0%A5%87%E0%A4%A6%E0%A4%B7%E0%A5%A5">
-<link rel="preload" as="image" href="assets/img/hero.webp" type="image/webp">
+<link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/hero-800.webp 800w, assets/img/hero.webp 1400w, assets/img/hero-2200.webp 2200w" imagesizes="(min-width: 700px) 340px, 70vw">
 <link rel="stylesheet" href="styles.css">
 <script src="config.js"></script>
 <script src="main.js" defer></script>
@@ -171,8 +171,8 @@
           <span class="card__l card__names"><span data-cfg="bride">Ruchira</span> <span class="amp">&amp;</span><span data-cfg="groom">Yash</span></span>
           <span class="card__photo">
             <picture>
-              <source srcset="assets/img/hero.webp" type="image/webp">
-              <img src="assets/img/hero.jpg" alt="" width="497" height="314" fetchpriority="high">
+              <source srcset="assets/img/hero-800.webp 800w, assets/img/hero.webp 1400w, assets/img/hero-2200.webp 2200w" sizes="(min-width: 700px) 340px, 70vw" type="image/webp">
+              <img src="assets/img/hero.jpg" srcset="assets/img/hero-800.jpg 800w, assets/img/hero.jpg 1400w, assets/img/hero-2200.jpg 2200w" sizes="(min-width: 700px) 340px, 70vw" alt="" width="497" height="314" fetchpriority="high">
             </picture>
           </span>
           <span class="card__l card__venue">
@@ -231,8 +231,8 @@
       <div class="pin__stage">
         <figure class="photo pin__photo">
           <picture>
-            <source srcset="assets/img/hero.webp" type="image/webp">
-            <img src="assets/img/hero.jpg" alt="Ruchira and Yash holding hands, her palms decorated with mehndi" width="497" height="314" decoding="async" id="heroImg">
+            <source srcset="assets/img/hero-800.webp 800w, assets/img/hero.webp 1400w, assets/img/hero-2200.webp 2200w" sizes="(min-width: 700px) 1100px, 100vw" type="image/webp">
+            <img src="assets/img/hero.jpg" srcset="assets/img/hero-800.jpg 800w, assets/img/hero.jpg 1400w, assets/img/hero-2200.jpg 2200w" sizes="(min-width: 700px) 1100px, 100vw" alt="Ruchira and Yash holding hands, her palms decorated with mehndi" width="497" height="314" decoding="async" id="heroImg">
           </picture>
         </figure>
         <p class="pin__line caps" data-cfg="pinLine">Two families. One celebration.</p>
@@ -333,16 +333,16 @@
             <input id="fName" name="name" type="text" autocomplete="name" maxlength="100" required>
             <p class="err" id="eName" hidden>Please tell us your name.</p>
           </div>
-          <fieldset class="field choice" id="sideField">
-            <legend>You’re here for</legend>
-            <label><input type="radio" name="side" value="Bride"><span>Bride’s side</span></label>
-            <label><input type="radio" name="side" value="Groom"><span>Groom’s side</span></label>
-          </fieldset>
           <fieldset class="field choice" aria-describedby="eAttend">
             <legend>Will you attend?</legend>
             <label><input type="radio" name="attending" value="yes" required><span>Joyfully accept</span></label>
             <label><input type="radio" name="attending" value="no"><span>Regretfully decline</span></label>
             <p class="err" id="eAttend" hidden>Please choose one.</p>
+          </fieldset>
+          <fieldset class="field choice" id="sideField" hidden>
+            <legend>You’re here for</legend>
+            <label><input type="radio" name="side" value="Bride"><span>Bride’s side</span></label>
+            <label><input type="radio" name="side" value="Groom"><span>Groom’s side</span></label>
           </fieldset>
           <fieldset class="field choice" id="partyField" hidden>
             <legend>Who’s coming?</legend>

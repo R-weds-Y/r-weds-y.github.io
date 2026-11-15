@@ -39,8 +39,9 @@ window.WEDDING = {
   ],
 
   heroPhoto: {
-    webp: 'assets/img/hero.webp',
-    jpg: 'assets/img/hero.jpg',
+    // several sizes, so phones download a small file and laptops a sharp one
+    webp: 'assets/img/hero-800.webp 800w, assets/img/hero.webp 1400w, assets/img/hero-2200.webp 2200w',
+    jpg: 'assets/img/hero-800.jpg 800w, assets/img/hero.jpg 1400w, assets/img/hero-2200.jpg 2200w',
     alt: 'Ruchira and Yash holding hands, her palms decorated with mehndi',
     width: 497, height: 314,
   },

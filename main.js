@@ -34,7 +34,10 @@
     if (C.closing) { fill('closingLine', C.closing.line); fill('signoff', C.closing.signoff); fill('ps', C.closing.ps); fill('egg', C.closing.egg); }
     var hp = C.heroPhoto;
     if (hp) $$('.card__photo picture, .photo picture').forEach(function (p) {
-      $('source', p).srcset = hp.webp; var img = $('img', p); img.src = hp.jpg;
+      // values may be a single path or a srcset list ("a.jpg 800w, b.jpg 1400w")
+      $('source', p).srcset = hp.webp; var img = $('img', p);
+      if (/\s\d+w/.test(hp.jpg)) { img.srcset = hp.jpg; img.src = hp.jpg.split(',').map(function (s) { return s.trim().split(/\s+/)[0]; })[1] || hp.jpg.split(/\s+/)[0]; }
+      else { img.removeAttribute('srcset'); img.src = hp.jpg; }
       if (img.id === 'heroImg') img.alt = hp.alt;
       if (hp.width) { img.width = hp.width; img.height = hp.height; }
     });
@@ -171,11 +174,13 @@
     }
     if (R.askSide === false) { var sf = $('#sideField'); sf && sf.remove(); }
 
-    var partyField = $('#partyField');
+    var partyField = $('#partyField'), sideField = $('#sideField');
     var picked = function (n) { return (form.querySelector('input[name=' + n + ']:checked') || {}).value; };
+    // side and party are only asked once someone accepts
     function syncParty() {
       var yes = picked('attending') === 'yes';
       partyField.hidden = !yes;
+      if (sideField) sideField.hidden = !yes;
     }
     form.addEventListener('change', function (e) {
       if (e.target.name === 'attending') $('#eAttend').hidden = true;
@@ -238,7 +243,7 @@
 
       var guests = attending === 'yes' ? (party === '2' ? 2 : 1) : 0;
       var data = { id: guestId(), name: name,
-        side: picked('side') || '', attending: attending, guests: guests,
+        side: attending === 'yes' ? picked('side') || '' : '', attending: attending, guests: guests,
         message: msg.value.trim().slice(0, 300), website: form.website.value };
 
       var saveLocal = function () { var c = Object.assign({}, data); delete c.website; store.set('rsvp', JSON.stringify(c)); };
@@ -375,6 +380,14 @@
       it.innerHTML = it.textContent.trim().split(/\s+/).map(function (w) { return '<span class="w">' + esc(w) + '</span>'; }).join(' ');
       words = $$('.w', it);
     }
+    // measure the pinned photo so the spacing around it fits any screen size
+    var pin = $('#pin');
+    function sizePin() {
+      if (!pin) return;
+      var ph = $('.pin__photo', pin), ln = $('.pin__line', pin);
+      pin.style.setProperty('--pin-h', ((ph ? ph.offsetHeight : 0) + 18 + (ln ? ln.offsetHeight : 0)) + 'px');
+    }
+    sizePin();
     var scenes = $$('[data-scene]'), revs = [];
     var sy = window.scrollY, running = false, lastT = 0;
 
@@ -435,7 +448,8 @@
       apply();
     };
     window.addEventListener('scroll', kick, { passive: true });
-    window.addEventListener('resize', function () { sy = window.scrollY; apply(); });
+    window.addEventListener('resize', function () { sizePin(); sy = window.scrollY; apply(); });
+    var heroImg = $('#heroImg'); if (heroImg && !heroImg.complete) heroImg.addEventListener('load', sizePin);
     if ('ResizeObserver' in window) new ResizeObserver(function () { apply(); }).observe(doc.body);
     motionRefresh();
   }
